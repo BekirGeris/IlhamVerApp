@@ -2,7 +2,6 @@ package com.example.ilhamverapp.ui.theme
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.view.Window
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
@@ -10,19 +9,17 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.example.ilhamverapp.R
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
+    primary = PrimaryColorDark,
     primaryVariant = Purple700,
     secondary = Teal200
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
+    primary = PrimaryColor,
     primaryVariant = Purple700,
     secondary = Teal200
 
@@ -50,7 +47,7 @@ fun IlhamVerAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colors.primary.toArgb()
-            window.navigationBarColor = colors.primary.toArgb()
+//            window.navigationBarColor = colors.primary.toArgb()
 
             WindowCompat.getInsetsController(window, view)?.isAppearanceLightStatusBars = darkTheme
             WindowCompat.getInsetsController(window, view)?.isAppearanceLightNavigationBars  = darkTheme
